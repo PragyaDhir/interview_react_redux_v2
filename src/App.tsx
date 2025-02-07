@@ -1,25 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useTypedSelector } from './hooks/useTypeSelector';
+import { getItems } from './store/getItems';
+import { Item } from './model/item';
 
 function App() {
+  const dispatch = useDispatch()
+  const { items, loading, error } = useTypedSelector((state) => state.items);
+
+  useEffect(() => {
+    dispatch(getItems());
+  }, [dispatch]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {loading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div style={{ color: 'red' }}>Error: {error}</div>
+      ) : (
+        <table>
+          <th>
+            Guid
+          </th>
+          <th>
+            Name
+          </th>
+          <th>
+            Path
+          </th>
+          {items?.map((item) => (
+            <tr>
+              <td>{item.guid}</td>
+              <td>{item.name}</td>
+              <td>{item.path}</td>
+            </tr>
+          ))}
+        </table>
+      )}
+    </>
   );
 }
 

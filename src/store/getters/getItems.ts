@@ -1,24 +1,23 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
-import { Action, ActionType } from "./actiontype"
+import { ItemAction, ItemActionType } from "../actions/itemActionType"
 
 export const getItems =() => {
-    return async (dispatch: Dispatch<Action>) => {
+    return async (dispatch: Dispatch<ItemAction>) => {
         dispatch({
-            type: ActionType.GET_IMAGE
+            type: ItemActionType.GET_ITEM
         });
 
         try {
             const { data } = await axios.get(`http://localhost:8080/items`);
-            console.log(data);
             dispatch({
-                type: ActionType.GET_IMAGE_SUCCESS,
+                type: ItemActionType.GET_ITEM_SUCCESS,
                 payload: data  
             });
 
         } catch(err) {
             dispatch({
-                type: ActionType.GET_IMAGE_FAIL,
+                type: ItemActionType.GET_ITEM_FAIL,
                 payload: err.message
             });
         }

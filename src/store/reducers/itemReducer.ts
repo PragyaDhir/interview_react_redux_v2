@@ -1,5 +1,5 @@
-import { Item } from "../model/item";
-import { Action, ActionType } from "./actiontype"
+import { Item } from "../../model/item";
+import { ItemAction, ItemActionType } from "../actions/itemActionType";
 interface State {
     items : Item[],
     loading : boolean,
@@ -11,21 +11,21 @@ const intialState = {
     loading : false,
     error : null
 }
-export const imageReducer =(state : State= intialState, action :Action) =>{
+export const itemReducer =(state : State= intialState, action :ItemAction) =>{
     switch(action.type)
     {
-        case ActionType.GET_IMAGE:
+        case ItemActionType.GET_ITEM:
             return {
                 loading :false
             }
 
-        case ActionType.GET_IMAGE_SUCCESS:
+        case ItemActionType.GET_ITEM_SUCCESS:
             return {
                 loading : false,
                 items : action.payload
 
         }
-        case 'GET_IMAGE_FAIL': return {
+        case ItemActionType.GET_ITEM_FAIL: return {
             loading :false,
             error : action.payload
         }

@@ -1,5 +1,5 @@
 export interface Properties{
-    propStrinfg : string,
+    propString : string,
     propNumber : number,
     date : Date
 }

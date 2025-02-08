@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from './hooks/useTypeSelector';
 import { getItems } from './store/getters/getItems';
-import ItemsTable from './components/ItemsTable';
+import ItemsContainer from './components/ItemsContainer';
 
 function App() {
   const dispatch = useDispatch()
@@ -20,7 +20,7 @@ function App() {
       ) : error ? (
         <div style={{ color: 'red' }}>Error: {error}</div>
       ) : ( items ?
-        <ItemsTable items={items} /> : null
+        <ItemsContainer items={items} /> : null
       )}
     </>
   );

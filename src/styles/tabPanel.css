@@ -1,0 +1,9 @@
+.tabPanels .MuiTab-root {
+  color: #7886C7;
+}
+
+.panelImage{
+  max-width: 400px;
+  max-height: 400px;
+  border-radius: 8px;
+}

@@ -1,0 +1,36 @@
+.tableContainer {
+    background-color:  #FFF2F2;
+    border: 4px #A9B5DF;
+    border-radius: 5px;
+}
+
+.tableContainer th{
+    background-color: #2D336B;
+    color: #FFF2F2;
+    font-weight: 1000;
+}
+
+.tableContainer td{
+    background-color: #F5F5F5;
+    color: #000000 ;
+}
+
+.tableContainer tr:active  td {
+    background-color: #7886C7;
+}
+
+.tableContainer tr:hover  td {
+    background-color: #7886C7;
+}
+
+.table-row {
+  cursor: pointer;
+}
+
+.table-row.selected {
+  background-color: #f0f0f0;
+}
+
+.table-row:not(.selected) {
+  background-color: transparent;
+}

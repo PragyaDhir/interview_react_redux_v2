@@ -1,5 +1,6 @@
 import { Grid2 } from "@mui/material";
 import React from "react";
+import '../styles/properties.css';
 
 
 interface ItemPropertiesProps {
@@ -10,14 +11,14 @@ const ItemProperties: React.FC<ItemPropertiesProps> = ({ properties }) => {
   return (
     <Grid2>
       {properties ? (
-        <div style={{ padding: '8px' }}>         
+        <Grid2 className='properties'>         
           {Object.entries(properties).map(([key, value]) => (
-            <div key={key} style={{ marginBottom: '8px' }}>
+            <div key={key} >
               <strong>{key}: </strong>
               <span>{typeof value === 'object' ? JSON.stringify(value) : value}</span>
             </div>
           ))}
-        </div>
+        </Grid2>
       ) : (
         <p>No properties available</p>
       )}
